@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-business-resume-background-material-picture-image_999584.jpg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+.bg-image {
+  position: fixed;
+  
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  z-index: 1;   /* Behind the main content */
+}
+
+.top-right {
+  top: 1;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background-image: url('https://dal77b742ziut.cloudfront.net/assets/MapRecruitAIAssets/img/illustrations/Parsers-Banner.png');/* Replace with your image path */
+}
+
+.bottom-left {
+  bottom:0cqmax;
+  left: 0;
+  width: 500px;
+  height: 400px;
+  background-image: url('https://www.digitalresumeparser.com/assets/img/intro-mobile_2.png'); /* Replace with your image path */
+}
+@media (max-width: 768px) {
+  .bg-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+
+.App {
+  background-color:#f0f8ff;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 28px 40px;
+}
+
+h1 {
+  font-weight:900;
+  color: #0077cc;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+input[type="file"] {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+button {
+  background-color: #0077cc;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #3595a8;
+}
+
+button:disabled {
+  background-color: #9fd6e7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.result {
+  background: #f9fbfd;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.05);
+}
+
+.result h3 {
+  margin-top: 0;
+  color: #004080;
+  border-bottom: 2px solid #0077cc;
+  padding-bottom: 6px;
+}
+
+.result pre {
+  max-height: 180px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid #ddd;
+}
+pre {
+  max-height: 150px;
+  overflow-y: auto;
+  background: #e3e9f3;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.result h4 {
+  color: #555;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.result div > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.result span {
+  background-color: #e0e7ff;
+  border: 1px solid #a5b4fc;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  color: #3730a3;
+  user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.result span:hover {
+  background-color: #c7d2fe;
+  border-color: #4338ca;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.suggested-roles ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.suggested-roles li {
+  background: #d1e7ff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #004080;
+}
+
+.skill-tag {
+  background-color: #e6f2ff;
+  border: 1px solid #99ccff;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: #0077cc;
+  color: white;
+}
+.tooltip {
+  position: absolute;
+  bottom: -250%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #004080;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 220px;
+  font-size: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+  text-align: center;
+  z-index: 20;
+}
+@media (max-width: 600px) {
+  .App {
+    padding: 20px;
+  }
+  
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  input[type="file"] {
+    width: 100%;
+  }
+}
+.dropdown-container {
+  position: relative;
+  width: 280px;
+  margin: 20px auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-selected {
+  border: 1px solid #0077cc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f0f8ff;
+  font-weight: 600;
+  color: #004080;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-selected:hover {
+  background-color: #d7ebff;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #0077cc;
+  border-radius: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  padding: 8px;
+}
+
+.dropdown-list input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.dropdown-list div {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-list div:hover {
+  background-color: #cce4ff;
+}
+
+.dropdown-list div.selected {
+  background-color: #0077cc;
+  color: #fff;
+  font-weight: 700;
+}
+.job-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.job-link {
+  color: #007BFF;
+  text-decoration: none;
+}
+.job-link:hover {
+  text-decoration: underline;
+}
+
