@@ -52,7 +52,7 @@ const [selectedRole, setSelectedRole] = useState(roles[0]); // default first rol
   formData.append('target_role', selectedRole); // <-- add this
 
   try {
-    const res = await fetch('http://localhost:5000/analyze', {
+    const res = await fetch('https://ai-resume-analyzer-mouv.onrender.com', {
       method: 'POST',
       body: formData,
     });
