@@ -4,6 +4,7 @@ import JobRoleDropdown from './JobRoleDropdown.jsx';
 import JobMatch from './JobMatch.jsx';
 
 
+
 function App() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
@@ -135,8 +136,36 @@ const [selectedRole, setSelectedRole] = useState(roles[0]); // default first rol
 
   return (
     <div className="App">
-      <div className="bg-image top-right"></div>
-  <div className="bg-image bottom-left"></div>
+       
+
+      <div
+        className="bg-image top-right"
+        style={{
+          position: 'fixed',
+          top: '10px',
+          right: 0,
+          width: '400px',
+          height: '450px',
+          zIndex: 1,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+        }}
+      ></div>
+
+      <div
+        className="bg-image bottom-left"
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          width: '450px',
+          height: '400px',
+          zIndex: 1,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+        }}
+      ></div>
+    
 
       <h1>AI Resume Analyzer</h1>
       <form onSubmit={handleUpload}>
