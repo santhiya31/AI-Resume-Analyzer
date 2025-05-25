@@ -11,7 +11,9 @@ const JobMatch = ({ selectedRole }) => {
     const fetchJobs = async () => {
   setLoading(true);
   setError(null);
-  const url = 'https://jobs-search-api.p.rapidapi.com/getjobs';
+  const apiKey = process.env.REACT_APP_RAPIDAPI_KEY;
+const apiHost = process.env.REACT_APP_RAPIDAPI_HOST;
+const apiUrl = process.env.REACT_APP_API_URL;
 
   const bodyData = {
     search_term: selectedRole || 'developer', // example fallback
@@ -26,17 +28,21 @@ const JobMatch = ({ selectedRole }) => {
   };
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'x-rapidapi-key': 'da75fda6a0msh153ebb526df5644p1ebca0jsn91f0bc975125',
-    'x-rapidapi-host': 'jobs-search-api.p.rapidapi.com',
+       'X-RapidAPI-Key': apiKey,
+    'X-RapidAPI-Host': apiHost,
     'Content-Type': 'application/json'
       },
       body: JSON.stringify(bodyData),
     });
 
-    if (!response.ok) throw new Error(`Error! status: ${response.status}`);
+    if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Error ${response.status}: ${errorText}`);
+    }
+
 
     const data = await response.json();
     console.log("Job Data:", data);
@@ -58,23 +64,33 @@ const JobMatch = ({ selectedRole }) => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h3>Matching Jobs for: {selectedRole}</h3>
-      {jobs.length === 0 ? (
-        <p>No matching jobs found.</p>
-      ) : (
-        <ul>
-          {jobs.map((job) => (
-            <li key={job.id}>
-  <h4>{job.title}</h4>
-  <p>{job.company || 'Unknown Company'}</p>
-  <p>{job.location || 'N/A'}</p>
-  <a href={job.job_url} target="_blank" rel="noopener noreferrer">View Full Job</a>
-</li>
-          ))}
-        </ul>
-      )}
-    </div>
+   <div className="jobmatch-container">
+  <h3 className="jobmatch-title">Matching Jobs for: {selectedRole}</h3>
+
+  {jobs.length === 0 ? (
+    <p className="no-jobs">No matching jobs found.</p>
+  ) : (
+    <ul className="job-list">
+      {jobs.map((job) => (
+        <li key={job.id} className="job-item">
+          <h4 className="job-title">{job.title}</h4>
+          <p className="job-company">Company : {job.company || 'Unknown Company'}</p>
+          <p className="job-location">Location : {job.location || 'N/A'}</p>
+          <a
+            href={job.job_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="job-link"
+          >
+            View Full Job
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
+
+
   );
 };
 

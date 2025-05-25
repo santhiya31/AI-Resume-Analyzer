@@ -25,17 +25,17 @@ body {
 }
 
 .top-right {
-  top: 1;
+  top: 10;
   right: 0;
   width: 400px;
-  height: 400px;
+  height: 450px;
   background-image: url('https://dal77b742ziut.cloudfront.net/assets/MapRecruitAIAssets/img/illustrations/Parsers-Banner.png');/* Replace with your image path */
 }
 
 .bottom-left {
   bottom:0cqmax;
   left: 0;
-  width: 500px;
+  width: 450px;
   height: 400px;
   background-image: url('https://www.digitalresumeparser.com/assets/img/intro-mobile_2.png'); /* Replace with your image path */
 }
@@ -323,11 +323,74 @@ pre {
   margin-bottom: 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+.jobmatch-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.jobmatch-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+
+.no-jobs {
+  color: #777;
+  font-style: italic;
+}
+
+.job-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.job-item:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.job-title {
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+  color: #222;
+}
+
+.job-company,
+.job-location {
+  margin: 4px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
 .job-link {
-  color: #007BFF;
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  color: white;
+  background-color: #007bff;
+  border-radius: 6px;
   text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
+
 .job-link:hover {
-  text-decoration: underline;
+  background-color: #0056b3;
 }
+
 
