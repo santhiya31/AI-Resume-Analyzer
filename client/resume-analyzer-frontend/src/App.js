@@ -58,6 +58,7 @@ const [selectedRole, setSelectedRole] = useState(roles[0]); // default first rol
 });
 
 
+
     const data = await res.json();
     setResult(data);
     const skillsArray = data.skills ? Object.values(data.skills).flat() : [];
