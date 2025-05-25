@@ -5,7 +5,10 @@ import re
 import os
 
 app = Flask(__name__)
-CORS(app)  # Replace with actual Firebase URL
+CORS(app, origins=[
+    "https://ai-resume-analyzer-255f1.web.app",  # your deployed frontend
+    "http://localhost:3000"                      # local dev (optional)
+])
 
 
 
